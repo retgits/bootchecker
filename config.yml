@@ -1,3 +1,5 @@
+loglevel: info
+
 config:
   smtpserver: smtp.gmail.com
   smtpport: 587

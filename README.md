@@ -35,6 +35,8 @@ make build-macos
 The `config.yml` has a few cofiguration values you can use
 
 ```yml
+loglevel: info               ## loglevel for the app
+
 config:
   smtpserver: smtp.gmail.com ## The FQDN of the SMTP server
   smtpport: 587              ## The port of the SMTP server
