@@ -1,6 +1,13 @@
 config:
   smtpserver: smtp.gmail.com
   smtpport: 587
-commands:
-  - "ls -alh"
-  - "ifconfig"
+
+bootmail:
+  commands:
+    - "ls -alh"
+    - "ifconfig"
+
+someOtherCommand:
+  email: true
+  commands:
+    - "echo HelloWorld"

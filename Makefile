@@ -17,8 +17,8 @@ deps: ## Get and update all dependencies
 
 #--- build-linux ---
 build-linux: ## Build a Linux executable
-	@GOOS=linux go build -o bootchecker -ldflags "-X main.emailAddress=${EMAIL_ADDRESS} -X main.emailPassword=${EMAIL_PASSWORD}" main.go
+	@GOOS=linux go build -o bootchecker -ldflags "-X github.com/retgits/bootchecker/cmd.emailAddress=${EMAIL_ADDRESS} -X github.com/retgits/bootchecker/cmd.emailPassword=${EMAIL_PASSWORD}" main.go
 
 #--- build-macos ---
 build-macos: ## Build a macOS executable
-	@GOOS=darwin go build -o bootchecker -ldflags "-X main.emailAddress=${EMAIL_ADDRESS} -X main.emailPassword=${EMAIL_PASSWORD}" main.go
+	@GOOS=darwin go build -o bootchecker -ldflags "-X github.com/retgits/bootchecker/cmd.emailAddress=${EMAIL_ADDRESS} -X github.com/retgits/bootchecker/cmd.emailPassword=${EMAIL_PASSWORD}" main.go

@@ -2,9 +2,9 @@
 
 ![bootchecker](./bootchecker.png)
 
-_Because you need to check things after a server booted!_
+_Because you need to do things after a server booted!_
 
-Bootchecker is a simple app that runs the commands from the `config.yml` file and sends the output to a predefined email address.
+Bootchecker is a simple app that runs commands from the `config.yml` file and sends the output to a predefined email address.
 
 ## Build and Run Bootchecker
 
@@ -38,9 +38,57 @@ The `config.yml` has a few cofiguration values you can use
 config:
   smtpserver: smtp.gmail.com ## The FQDN of the SMTP server
   smtpport: 587              ## The port of the SMTP server
-commands:                    ## commands is an array of commands that are executed and the result is sent by email
-  - "ls -alh"
-  - "ifconfig"
+
+bootmail:                    ## The array of commands that is run by `bootchecker bootmail`
+  commands:
+    - "ls -alh"
+    - "ifconfig"
+
+someOtherCommand:            ## The array of commands that is run by `bootchecker generic --cmd someOtherCmd`
+  email: false               ## If set to true, the program will try to send an email
+  commands:
+    - "echo HelloWorld"
+```
+
+## Commands
+
+### usage
+
+```bash
+Because you need to do things after a server booted
+
+Usage:
+  bootchecker [command]
+
+Available Commands:
+  bootmail    Sends an email on boot
+  generic     Runs a set of commands from the configuration file
+  help        Help about any command
+
+Flags:
+      --config string   config file (default is $HOME/.bootchecker.yml)
+  -h, --help            help for bootchecker
+      --version         version for bootchecker
+
+Use "bootchecker [command] --help" for more information about a command.
+```
+
+### generic
+
+```bash
+$ bootchecker generic
+
+Runs a set of commands from the configuration file
+
+Usage:
+  bootchecker generic [flags]
+
+Flags:
+      --cmd string   The name of the command group you want to execute (required)
+  -h, --help         help for generic
+
+Global Flags:
+      --config string   config file (default is $HOME/.bootchecker.yml)
 ```
 
 ## License
